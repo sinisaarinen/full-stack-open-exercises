@@ -1,6 +1,19 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+const Statistics = ({good, neutral, bad}) => {
+ return (
+   <>
+  <p>good {good}</p>
+  <p>neutral {neutral}</p>
+  <p>bad {bad}</p>
+  <p>all {good+neutral+bad}</p>
+  <p>average {(good-bad)/(good+neutral+bad) || 0}</p>
+  <p>positive {100*good/(good+neutral+bad) || 0} %</p>
+  </>
+ )
+}
+
 const Button = (props) => {
   const { onClick, text } = props
   return (
@@ -37,13 +50,7 @@ const App = () => {
       <Button onClick={handleBadClick} text='bad' />
       </div>
       <h1>statistics</h1>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {good+neutral+bad}</p>
-      <p>average {(good-bad)/(good+neutral+bad) || 0}</p>
-      <p>positive {100*good/(good+neutral+bad) || 0} %</p>
-
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   )
 }
