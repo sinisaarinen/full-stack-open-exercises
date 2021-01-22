@@ -5,6 +5,7 @@ const Course = ({ course }) => {
     <>
       <Header course={course.name} />
       <Content parts={course.parts} />
+      <Total parts={course.parts} />
     </>
   );
 };
@@ -36,5 +37,15 @@ const Part = (props) => {
     </>
   );
 };
+
+
+const Total = (props) => {
+    const total = props.parts.reduce((s, p) => s + p.exercises, 0)
+    return (
+      <>
+        <b>total of {total} exercises</b>
+      </>
+    )
+}
 
 export default Course;
