@@ -2,12 +2,12 @@ import React from "react";
 
 const Course = ({ course }) => {
   return (
-    <>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
-    </>
-  );
+  <>
+       <Header course={course.name} />
+        <Content parts={course.parts} />
+        <Total parts={course.parts} />
+  </>
+  )
 };
 
 const Header = (props) => {
@@ -39,12 +39,12 @@ const Part = (props) => {
 };
 
 const Total = (props) => {
-    const total = props.parts.reduce((s, p) => s + p.exercises, 0)
-    return (
-      <>
-        <b>total of {total} exercises</b>
-      </>
-    )
-}
+  const total = props.parts.reduce((s, p) => s + p.exercises, 0);
+  return (
+    <>
+      <b>total of {total} exercises</b>
+    </>
+  );
+};
 
 export default Course;
