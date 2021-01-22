@@ -38,7 +38,6 @@ const Part = (props) => {
   );
 };
 
-
 const Total = (props) => {
     const total = props.parts.reduce((s, p) => s + p.exercises, 0)
     return (
