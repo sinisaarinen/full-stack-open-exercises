@@ -2,12 +2,12 @@ import React from "react";
 
 const Course = ({ course }) => {
   return (
-  <>
-       <Header course={course.name} />
-        <Content parts={course.parts} />
-        <Total parts={course.parts} />
-  </>
-  )
+    <>
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+    </>
+  );
 };
 
 const Header = (props) => {
@@ -21,10 +21,10 @@ const Header = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part part={props.parts[0]} exercises={props.parts[0]} />
-      <Part part={props.parts[1]} exercises={props.parts[1]} />
-      <Part part={props.parts[2]} exercises={props.parts[2]} />
-    </div>
+    {props.parts.map((part) => (
+      <Part key={part.id} part={part} />
+    ))}
+  </div>
   );
 };
 
